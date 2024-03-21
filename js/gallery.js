@@ -95,6 +95,21 @@ function handleProductClick(event) {
     const currentProduct = event.target;
     const imageLink = currentProduct.dataset.source;
     const currentAttribute = currentProduct.getAttribute('alt');
-    
+
+    instance = basicLightbox.create(`
+    <div class="modal">
+        <img src="${imageLink}" alt="${currentAttribute}"
+    </div>
+  `);
+
+    instance.show();
+  document.addEventListener('keydown', closeModal);
+}
+
+function closeModal(event) {
+  if (event.key === 'Escape') {
+    instance.close();
+    document.removeEventListener('keydown', closeModal);
+  }
 }
 
