@@ -86,4 +86,15 @@ function createMarkup(arr) {
 </li>
     `).join("");
 }
+function handleProductClick(event) {
+    event.preventDefault();
+
+    if (event.target === event.currentTarget) {
+        return;
+    }
+    const currentProduct = event.target;
+    const imageLink = currentProduct.dataset.source;
+    const currentAttribute = currentProduct.getAttribute('alt');
+    
+}
 
